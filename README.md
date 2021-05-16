@@ -5,3 +5,6 @@ Created for a user at the Adobe Photoshop Community Forum
 
 Version 1.0:
 Initial release, using two prompts for the user to enter X and Y pixel co-ordinates for the ruler origin point from the upper left of the canvas.
+
+Version 1.2:
+An alternative version using scriptUI to offer the selection of 9 preset canvas positions.
