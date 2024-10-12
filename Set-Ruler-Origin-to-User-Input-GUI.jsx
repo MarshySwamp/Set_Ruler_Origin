@@ -1,10 +1,7 @@
 /* 
-https://community.adobe.com/t5/photoshop/feature-request-set-origin-point/td-p/12037399
-Feature Request: Set Origin Point
-
-Set Ruler Origin to User Input.jsx
-Version 1.3, 19th May 2021
-Stephen Marsh
+Set Ruler Origin to User Input v1-4.jsx
+Version 1.4, 12th October 2024 - Stephen Marsh
+https://community.adobe.com/t5/photoshop-ecosystem-discussions/feature-request-set-ruler-origin-location-in-photoshop/td-p/10844115/page/2#U14912183
 */
 
 #target photoshop
@@ -15,18 +12,11 @@ if (app.documents.length > 0) {
     var savedRuler = app.preferences.rulerUnits;
     app.preferences.rulerUnits = Units.PIXELS;
 
-    /////////////////////////////// joonas scriptUI ///////////////////////////////
-    /*
-    Code for Import https://scriptui.joonas.me — (Triple click to select): 
-    {"activeId":0,"items":{"item-0":{"id":0,"type":"Dialog","parentId":false,"style":{"enabled":true,"varName":"dialogWindow","windowType":"Dialog","creationProps":{"su1PanelCoordinates":false,"maximizeButton":false,"minimizeButton":false,"independent":false,"closeButton":false,"borderless":false,"resizeable":false},"text":"Set Ruler Origin - v???","preferredSize":[410,100],"margins":15,"orientation":"row","spacing":10,"alignChildren":["left","center"]}},"item-2":{"id":2,"type":"Button","parentId":4,"style":{"enabled":true,"varName":"okButton","text":"OK","justify":"center","preferredSize":[0,0],"alignment":null,"helpTip":null}},"item-3":{"id":3,"type":"Button","parentId":4,"style":{"enabled":true,"varName":"cancelButton","text":"Cancel","justify":"center","preferredSize":[0,0],"alignment":null,"helpTip":null}},"item-4":{"id":4,"type":"Group","parentId":0,"style":{"enabled":true,"varName":"okGroup","preferredSize":[0,0],"margins":[1,1,1,1],"orientation":"column","spacing":12,"alignChildren":["left","center"],"alignment":"center"}},"item-5":{"id":5,"type":"Group","parentId":20,"style":{"enabled":true,"varName":"upperGroup","preferredSize":[0,0],"margins":0,"orientation":"column","spacing":10,"alignChildren":["left","center"],"alignment":null}},"item-6":{"id":6,"type":"RadioButton","parentId":5,"style":{"enabled":true,"varName":"upperLeft","text":"Upper Left","preferredSize":[0,0],"alignment":null,"helpTip":null}},"item-7":{"id":7,"type":"RadioButton","parentId":5,"style":{"enabled":true,"varName":"middleLeft","text":"Middle Left","preferredSize":[0,0],"alignment":null,"helpTip":null}},"item-8":{"id":8,"type":"RadioButton","parentId":5,"style":{"enabled":true,"varName":"lowerLeft","text":"Lower Left","preferredSize":[0,0],"alignment":null,"helpTip":null}},"item-9":{"id":9,"type":"Group","parentId":20,"style":{"enabled":true,"varName":"middleGroup","preferredSize":[0,0],"margins":0,"orientation":"column","spacing":10,"alignChildren":["left","center"],"alignment":null}},"item-10":{"id":10,"type":"RadioButton","parentId":9,"style":{"enabled":true,"varName":"upperCenter","text":"Upper Center","preferredSize":[0,0],"alignment":null,"helpTip":null}},"item-11":{"id":11,"type":"RadioButton","parentId":9,"style":{"enabled":true,"varName":"middleCenter","text":"Middle Center","preferredSize":[0,0],"alignment":null,"helpTip":null}},"item-12":{"id":12,"type":"RadioButton","parentId":9,"style":{"enabled":true,"varName":"lowerCenter","text":"Lower Center","preferredSize":[0,0],"alignment":null,"helpTip":null}},"item-13":{"id":13,"type":"Group","parentId":20,"style":{"enabled":true,"varName":"lowerGroup","preferredSize":[0,0],"margins":0,"orientation":"column","spacing":10,"alignChildren":["left","center"],"alignment":null}},"item-14":{"id":14,"type":"RadioButton","parentId":13,"style":{"enabled":true,"varName":"upperRight","text":"Upper Right","preferredSize":[0,0],"alignment":null,"helpTip":null}},"item-15":{"id":15,"type":"RadioButton","parentId":13,"style":{"enabled":true,"varName":"middleRight","text":"Middle Right","preferredSize":[0,0],"alignment":null,"helpTip":null}},"item-16":{"id":16,"type":"RadioButton","parentId":13,"style":{"enabled":true,"varName":"lowerRight","text":"Lower Right","preferredSize":[0,0],"alignment":null,"helpTip":null}},"item-17":{"id":17,"type":"Panel","parentId":21,"style":{"enabled":true,"varName":"xyPanel","creationProps":{"borderStyle":"etched","su1PanelCoordinates":false},"text":"X & Y Position","preferredSize":[0,0],"margins":[10,10,10,10],"orientation":"column","spacing":5,"alignChildren":["left","center"],"alignment":"center"}},"item-18":{"id":18,"type":"EditText","parentId":17,"style":{"enabled":true,"varName":"xValue","creationProps":{"noecho":false,"readonly":false,"multiline":false,"scrollable":false,"borderless":false,"enterKeySignalsOnChange":false},"softWrap":false,"text":"","justify":"left","preferredSize":[75,0],"alignment":null,"helpTip":"Enter the X value"}},"item-19":{"id":19,"type":"EditText","parentId":17,"style":{"enabled":true,"varName":"yValue","creationProps":{"noecho":false,"readonly":false,"multiline":false,"scrollable":false,"borderless":false,"enterKeySignalsOnChange":false},"softWrap":false,"text":"","justify":"left","preferredSize":[75,0],"alignment":null,"helpTip":"Enter the Y value"}},"item-20":{"id":20,"type":"Group","parentId":0,"style":{"enabled":true,"varName":null,"preferredSize":[0,0],"margins":0,"orientation":"row","spacing":10,"alignChildren":["left","center"],"alignment":null}},"item-21":{"id":21,"type":"Group","parentId":0,"style":{"enabled":true,"varName":"xyGroup","preferredSize":[0,0],"margins":[0,0,0,0],"orientation":"row","spacing":0,"alignChildren":["left","center"],"alignment":"center"}}},"order":[0,20,5,6,7,8,9,10,11,12,13,14,15,16,21,17,18,19,4,2,3],"settings":{"importJSON":true,"indentSize":false,"cepExport":false,"includeCSSJS":true,"showDialog":true,"functionWrapper":false,"afterEffectsDockable":false,"itemReferenceList":"None"}}
-    */
-
-    // DIALOGWINDOW
-    // ============
+    // Main window
     var dialogWindow = new Window("dialog", undefined, undefined, {
         closeButton: false
     });
-    dialogWindow.text = "Set Ruler Origin - v1.3"; // Remember to update this to match the header!
+    dialogWindow.text = "Set Ruler Origin - v1.4"; // Remember to update this to match the header!
     dialogWindow.preferredSize.width = 410;
     dialogWindow.preferredSize.height = 100;
     dialogWindow.orientation = "row";
@@ -34,9 +24,15 @@ if (app.documents.length > 0) {
     dialogWindow.spacing = 10;
     dialogWindow.margins = 15;
 
-    // GROUP1
-    // ======
-    var group1 = dialogWindow.add("group", undefined, {
+    // Main panel
+    var mainPanel = dialogWindow.add("panel", undefined, "Ruler Origin Point Location");
+    mainPanel.orientation = "column";
+    mainPanel.alignChildren = ["left", "top"]; // Align to top
+    mainPanel.spacing = 10;
+    mainPanel.margins = 10;
+
+    // Group 1
+    var group1 = mainPanel.add("group", undefined, {
         name: "group1"
     });
     group1.orientation = "row";
@@ -44,8 +40,7 @@ if (app.documents.length > 0) {
     group1.spacing = 10;
     group1.margins = 0;
 
-    // UPPERGROUP
-    // ==========
+    // Upper group
     var upperGroup = group1.add("group", undefined, {
         name: "upperGroup"
     });
@@ -58,24 +53,18 @@ if (app.documents.length > 0) {
         name: "upperLeft"
     });
     upperLeft.text = "Upper Left";
-    upperLeft.helpTip = "Radio buttons override the X & Y fields";
-
 
     var middleLeft = upperGroup.add("radiobutton", undefined, undefined, {
         name: "middleLeft"
     });
     middleLeft.text = "Middle Left";
-    middleLeft.helpTip = "Radio buttons override the X & Y fields";
-
 
     var lowerLeft = upperGroup.add("radiobutton", undefined, undefined, {
         name: "lowerLeft"
     });
     lowerLeft.text = "Lower Left";
-    lowerLeft.helpTip = "Radio buttons override the X & Y fields";
 
-    // MIDDLEGROUP
-    // ===========
+    // Middle group
     var middleGroup = group1.add("group", undefined, {
         name: "middleGroup"
     });
@@ -88,22 +77,18 @@ if (app.documents.length > 0) {
         name: "upperCenter"
     });
     upperCenter.text = "Upper Center";
-    upperCenter.helpTip = "Radio buttons override the X & Y fields";
 
     var middleCenter = middleGroup.add("radiobutton", undefined, undefined, {
         name: "middleCenter"
     });
     middleCenter.text = "Middle Center";
-    middleCenter.helpTip = "Radio buttons override the X & Y fields";
 
     var lowerCenter = middleGroup.add("radiobutton", undefined, undefined, {
         name: "lowerCenter"
     });
     lowerCenter.text = "Lower Center";
-    lowerCenter.helpTip = "Radio buttons override the X & Y fields";
 
-    // LOWERGROUP
-    // ==========
+    // Lower group
     var lowerGroup = group1.add("group", undefined, {
         name: "lowerGroup"
     });
@@ -116,64 +101,78 @@ if (app.documents.length > 0) {
         name: "upperRight"
     });
     upperRight.text = "Upper Right";
-    upperRight.helpTip = "Radio buttons override the X & Y fields";
 
     var middleRight = lowerGroup.add("radiobutton", undefined, undefined, {
         name: "middleRight"
     });
     middleRight.text = "Middle Right";
-    middleRight.helpTip = "Radio buttons override the X & Y fields";
 
     var lowerRight = lowerGroup.add("radiobutton", undefined, undefined, {
         name: "lowerRight"
     });
     lowerRight.text = "Lower Right";
-    lowerRight.helpTip = "Radio buttons override the X & Y fields";
 
-    // XYGROUP
-    // =======
-    var xyGroup = dialogWindow.add("group", undefined, {
-        name: "xyGroup"
-    });
+    // X & Y group
+    var xyGroup = dialogWindow.add("group", undefined, { name: "xyGroup" });
     xyGroup.orientation = "row";
-    xyGroup.alignChildren = ["left", "center"];
+    xyGroup.alignChildren = ["left", "top"]; // Align to top
     xyGroup.spacing = 0;
     xyGroup.margins = [0, 0, 0, 0];
-    xyGroup.alignment = ["left", "center"];
+    xyGroup.alignment = ["left", "top"]; // Align group to the top
 
-    // XYPANEL
-    // =======
-    var xyPanel = xyGroup.add("panel", undefined, undefined, {
-        name: "xyPanel"
-    });
-    xyPanel.text = "X & Y Position";
+    // X & Y panel
+    var xyPanel = xyGroup.add("panel", undefined, undefined, { name: "xyPanel" });
+    xyPanel.text = "Coordinates";
     xyPanel.orientation = "column";
     xyPanel.alignChildren = ["left", "center"];
     xyPanel.spacing = 5;
     xyPanel.margins = [10, 10, 10, 10];
     xyPanel.alignment = ["left", "center"];
 
-    var xValue = xyPanel.add('edittext {properties: {name: "xValue"}}');
+    // Create a group for X input and label
+    var xGroup = xyPanel.add("group");
+    xGroup.orientation = "row";
+    xGroup.alignChildren = ["left", "center"];
+
+    // Add X input field
+    var xValue = xGroup.add('edittext {properties: {name: "xValue"}}');
     xValue.helpTip = "Enter the X value";
-    xValue.preferredSize.width = 75;
+    xValue.preferredSize.width = 80;
     xValue.text = "";
-    // Call the function to imit keyboard entry to digits
-    xyPanel.xValue.addEventListener('keydown', NumericEditKeyboardHandler);
+    xValue.addEventListener('keydown', NumericEditKeyboardHandler);
+    xValue.addEventListener('changing', updateRadioButtons);
 
-    ////////////////////// peter kahrel scriptUI for dummies //////////////////////
-    // Preset the X field as active
-    xValue.active = true;
-    ////////////////////// peter kahrel scriptUI for dummies //////////////////////
+    // Add X label
+    var xLabel = xGroup.add("statictext", undefined, "X");
+    xLabel.preferredSize.width = 20; // Set preferred width for label alignment
 
-    var yValue = xyPanel.add('edittext {properties: {name: "yValue"}}');
+    // Create a group for Y input and label
+    var yGroup = xyPanel.add("group");
+    yGroup.orientation = "row";
+    yGroup.alignChildren = ["left", "center"];
+
+    // Add Y input field
+    var yValue = yGroup.add('edittext {properties: {name: "yValue"}}');
     yValue.helpTip = "Enter the Y value";
-    yValue.preferredSize.width = 75;
+    yValue.preferredSize.width = 80;
     yValue.text = "";
-    // Call the function to imit keyboard entry to digits
-    xyPanel.yValue.addEventListener('keydown', NumericEditKeyboardHandler);
+    yValue.addEventListener('keydown', NumericEditKeyboardHandler);
+    yValue.addEventListener('changing', updateRadioButtons);
 
-    ////////////////////// peter kahrel scriptUI for dummies //////////////////////
-    // Make multiple groups act as one group
+    // Add Y label
+    var yLabel = yGroup.add("statictext", undefined, "Y");
+    yLabel.preferredSize.width = 20; // Set preferred width for label alignment
+
+    var radioButtons = [upperLeft, middleLeft, lowerLeft, upperCenter, middleCenter, lowerCenter, upperRight, middleRight, lowerRight];
+    for (var i = 0; i < radioButtons.length; i++) {
+        radioButtons[i].addEventListener('click', function () {
+            xValue.text = "";
+            yValue.text = "";
+            updateRadioButtons();
+        });
+    }
+
+    ////////////////////// peter kahrel scriptUI for dummies - make multiple groups act as one group //////////////////////
     upperGroup.addEventListener("click", function () {
         for (var i = 0; i < middleGroup.children.length; i++)
             middleGroup.children[i].value = false;
@@ -200,30 +199,29 @@ if (app.documents.length > 0) {
         for (var i = 0; i < upperGroup.children.length; i++)
             upperGroup.children[i].value = false;
     });
-    ////////////////////// peter kahrel scriptUI for dummies //////////////////////
 
-    /////////////////////////////// joonas scriptUI ///////////////////////////////
-    // OKGROUP
-    // =======
+    // OK & Cancel button group
     var okGroup = dialogWindow.add("group", undefined, {
         name: "okGroup"
     });
-    okGroup.orientation = "column";
-    okGroup.alignChildren = ["left", "center"];
-    okGroup.spacing = 12;
-    okGroup.margins = [1, 1, 1, 1];
-    okGroup.alignment = ["left", "center"];
+    okGroup.orientation = "column"; // Set to column for vertical layout
+    okGroup.alignChildren = ["fill", "top"]; // Fill width, align to top
+    okGroup.spacing = 12; // Space between buttons
+    okGroup.margins = [1, 1, 1, 1]; // Margins around the group
 
     var okButton = okGroup.add("button", undefined, undefined, {
         name: "okButton"
     });
     okButton.text = "OK";
+    // Set the button to fill the width of the column
+    okButton.preferredSize.width = 100; // Set preferred width (adjust as needed)
 
     var cancelButton = okGroup.add("button", undefined, undefined, {
         name: "cancelButton"
     });
     cancelButton.text = "Cancel";
-    /////////////////////////////// joonas scriptUI ///////////////////////////////
+    // Set the button to fill the width of the column
+    cancelButton.preferredSize.width = 100; // Set preferred width (adjust as needed)
 
     ////////////////////////////// tom_ruark @ adobe //////////////////////////////
     /* https://feedback.photoshop.com/conversations/photoshop/photoshop-ability-to-ruler-origin-by-script/5f5f45bb4b561a3d425c7b32 */
@@ -242,7 +240,7 @@ if (app.documents.length > 0) {
     const keyTo = app.stringIDToTypeID("to");
     const eventSet = app.stringIDToTypeID("set");
 
-    // get the current values
+    // Get the current values
     GetRulerOrigin().toSource();
 
     function GetRulerOrigin() {
@@ -359,10 +357,8 @@ if (app.documents.length > 0) {
     }
     ////////////////////////////// tom_ruark @ adobe //////////////////////////////
 
-    /////////////////////////////// joonas scriptUI ///////////////////////////////
     okButton.onClick = function () {
         dialogWindow.close();
-        /////////////////////////////// joonas scriptUI ///////////////////////////////
 
         // Link function parameters to X & Y field values
         if (xValue.text.length > 0) {
@@ -465,12 +461,14 @@ if (app.documents.length > 0) {
         }
     }
 
-    /////////////////////////////// joonas scriptUI ///////////////////////////////
-    // Execute window
-    dialogWindow.show();
-    /////////////////////////////// joonas scriptUI ///////////////////////////////
+    // Execute window;
+    if (dialogWindow.show() == 1) {
+        // OK pressed
+    } else {
+        // Cancel pressed
+    }
 
-    ////////////////////////////// tom_ruark @ adobe //////////////////////////////
+    ////////////////////////////////// mike hale //////////////////////////////////
     // Function to limit keyboard entry to digits
     function NumericEditKeyboardHandler(event) {
         try {
@@ -495,6 +493,50 @@ if (app.documents.length > 0) {
         }
     }
 
+    function updateRadioButtons() {
+        var disableRadios = xValue.text.length > 0 || yValue.text.length > 0;
+
+        var radioButtons = [upperLeft, middleLeft, lowerLeft, upperCenter, middleCenter, lowerCenter, upperRight, middleRight, lowerRight];
+
+        for (var i = 0; i < radioButtons.length; i++) {
+            radioButtons[i].enabled = !disableRadios;
+            if (disableRadios) {
+                radioButtons[i].value = false;
+            }
+        }
+    }
+
+    xValue.addEventListener('changing', updateRadioButtons);
+    yValue.addEventListener('changing', updateRadioButtons);
+
+    function updateRadioButtons() {
+        var disableRadios = xValue.text.length > 0 || yValue.text.length > 0;
+
+        // Disable or enable all radio buttons
+        upperLeft.enabled = !disableRadios;
+        middleLeft.enabled = !disableRadios;
+        lowerLeft.enabled = !disableRadios;
+        upperCenter.enabled = !disableRadios;
+        middleCenter.enabled = !disableRadios;
+        lowerCenter.enabled = !disableRadios;
+        upperRight.enabled = !disableRadios;
+        middleRight.enabled = !disableRadios;
+        lowerRight.enabled = !disableRadios;
+
+        // Uncheck all radio buttons if disabled
+        if (disableRadios) {
+            upperLeft.value = false;
+            middleLeft.value = false;
+            lowerLeft.value = false;
+            upperCenter.value = false;
+            middleCenter.value = false;
+            lowerCenter.value = false;
+            upperRight.value = false;
+            middleRight.value = false;
+            lowerRight.value = false;
+        }
+    }
+
     function KeyHasModifier(event) {
         return event.shiftKey || event.ctrlKey || event.altKey || event.metaKey;
     }
@@ -514,7 +556,7 @@ if (app.documents.length > 0) {
     function KeyIsTabEnterEscape(event) {
         return event.keyName == 'Tab' || event.keyName == 'Enter' || event.keyName == 'Escape';
     }
-    ////////////////////////////// tom_ruark @ adobe //////////////////////////////
+    ////////////////////////////////// mike hale //////////////////////////////////
 
     // Restore the ruler units
     app.preferences.rulerUnits = savedRuler;
