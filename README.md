@@ -12,4 +12,7 @@ An alternative version using scriptUI to offer the selection of 9 preset canvas 
 **Version 1.3:**
 X & Y fields added. Radio buttons override the field entries. The intention/expectation is that either the radio buttons are used, or the fields are used instead - not both at the same time.
 
+**Version 1.4:**
+Updated the scriptUI code to disable the radio buttons when values are entered into the coordinate fields.
+
 ![Set Ruler Origin to User Input v1-3](https://user-images.githubusercontent.com/14517328/118808704-2015ed80-b8ed-11eb-83ea-8ce74777ba6f.png)
